@@ -1,0 +1,22 @@
+@import './colors';
+
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+/// @param {String} $color-name - Color Name.
+/// @param {Number} $tone - Color Tone.
+/// @return {Hex} - Color Hex Value.
+@function get-color($color-name, $tone: null) {
+  @if ($tone == null) {
+    @return map-get($colors, $color-name);
+  } @else {
+    @return map-deep-get($colors, $color-name, $tone);
+  }
+}
