@@ -1,7 +1,8 @@
 import {{component}} from './{{component}}.vue';
+import { action } from '@storybook/addon-actions';
 
 export default {
-  title: '{{component}}',
+  title: 'Baklava/{{component}}',
   argTypes: {},
 };
 

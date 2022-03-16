@@ -30,23 +30,28 @@ export default {
       default: false,
     },
 
+    trackBy: {
+      type: null,
+      default: null,
+    },
+
     modelValue: {
       type: null,
       default: false,
     },
 
     trueValue: {
-      type: Boolean,
+      type: null,
       default: true,
     },
 
     falseValue: {
-      type: Boolean,
+      type: null,
       default: false,
     },
 
     label: {
-      type: String,
+      type: [String, Number],
       default: '',
     },
   },
@@ -58,6 +63,12 @@ export default {
 
     shouldBeChecked () {
       if (this.modelValue instanceof Array) {
+        if (this.trackBy) {
+          return this.modelValue.some(
+            (el) => el[this.trackBy] == this.value[this.trackBy],
+          );
+        }
+
         return this.modelValue.includes(this.value);
       }
 
@@ -142,8 +153,8 @@ export default {
   &:checked + label::after {
     content: '';
     position: absolute;
-    left: 3.5px;
-    top: 9px;
+    left: 4px;
+    top: calc(50% - 2px);
     background: white;
     width: 2px;
     height: 2px;

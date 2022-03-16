@@ -1,3 +1,7 @@
+/**
+ * @namespace
+ * @property {object}  Colors               - colors available
+ */
 const colors = {
   white: '#ffffff',
   black: '#000000',
@@ -110,6 +114,17 @@ const colors = {
     700: '#9abfff',
     800: '#bcd4ff',
     900: '#ddeaff',
+  },
+  yellow: {
+    100: '#ff7b00',
+    200: '#ff8a00',
+    300: '#ff9800',
+    400: '#ffa700',
+    500: '#ffb600',
+    600: '#ffc533',
+    700: '#ffd366',
+    800: '#ffe299',
+    900: '#fff0cc',
   },
   error: {
     500: '#dc3545',

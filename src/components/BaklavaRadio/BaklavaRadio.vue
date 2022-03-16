@@ -60,9 +60,9 @@ export default {
 @import '../../styles';
 
 input[type='radio'] {
-  label {
-    border-color: get-color(light-grey, 500);
-    background: red;
+  & + label {
+    display: flex;
+    align-items: center;
   }
 
   &:checked + label::before {

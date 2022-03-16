@@ -8,7 +8,8 @@ mkdir $DIST_FOLDER
 echo "🦜 Copying everything from /$SOURCE_FOLDER to /$DIST_FOLDER..."
 cp -r $SOURCE_FOLDER/* $DIST_FOLDER
 
-autoExportFolders="$DIST_FOLDER/components $DIST_FOLDER/utils"
+autoExportFolders="/components /utils /filters /plugins"
 for folder in $autoExportFolders; do
-  ./exportAllFrom.sh $folder
+  ./exportAllFrom.sh $DIST_FOLDER$folder
+  echo "export * from '.${folder}/index.js';" >> $DIST_FOLDER/index.js
 done
